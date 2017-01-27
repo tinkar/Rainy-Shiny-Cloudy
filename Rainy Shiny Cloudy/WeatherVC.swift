@@ -8,8 +8,10 @@
 
 import UIKit
 
-class WeatherVC: UIViewController {
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var items : [String] = ["elo", "elo", "elo", "elo", "elo", "elo", "elo"]
+    
     @IBOutlet var dateLabel: UILabel!
     
     @IBOutlet var tempLabel: UILabel!
@@ -22,9 +24,32 @@ class WeatherVC: UIViewController {
     
     @IBOutlet var forecastTableView: UITableView!
     
+    
+    
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        return items.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
+        
+        
+        
+        return cell
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        forecastTableView.delegate = self
+        forecastTableView.dataSource = self
+        
+        print("ello")
+        print(currentWeatherUrl)
     }
 
     override func didReceiveMemoryWarning() {
