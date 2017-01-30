@@ -49,7 +49,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         forecastTableView.dataSource = self
         
         print("ello")
-        print(currentWeatherUrl)
+        
     }
 
     override func didReceiveMemoryWarning() {
