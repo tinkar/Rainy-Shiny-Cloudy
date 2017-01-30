@@ -24,7 +24,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var forecastTableView: UITableView!
     
-    
+    // create a generic instance of CurrentWeather class
+    var currentWeather = CurrentWeather()
     
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,8 +36,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
-        
-        
         
         return cell
     }
@@ -49,6 +48,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         forecastTableView.dataSource = self
         
         print("ello")
+        // performs the download function of class CurrentWeather
+        currentWeather.downloadWeatherDetails {
+            //Setup the ui
+        }
+        
         
     }
 

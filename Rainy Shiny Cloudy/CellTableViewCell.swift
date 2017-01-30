@@ -14,11 +14,9 @@ class CellTableViewCell: UITableViewCell {
     
     @IBOutlet var weatherIconImage: UIImageView!
     
-    
     @IBOutlet var dayLabel: UILabel!
     
     @IBOutlet var weatherLabel: UILabel!
-    
     
     @IBOutlet var tempLabel: UILabel!
     
