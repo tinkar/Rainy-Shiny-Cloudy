@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var items : [String] = ["elo", "elo", "elo", "elo", "elo", "elo", "elo"]
+    
     
     @IBOutlet var dateLabel: UILabel!
     
@@ -24,13 +25,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var forecastTableView: UITableView!
     
-    // create a generic instance of CurrentWeather class
+    // create a generic instance of CurrentWeather and Forecast classes
     var currentWeather = CurrentWeather()
-    
+    var forecast = Forecast()
+    var forecasts = [Forecast]()
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return items.count
+        return 10
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,15 +49,51 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         forecastTableView.delegate = self
         forecastTableView.dataSource = self
         
-        print("ello")
+        currentWeather = CurrentWeather()
+        forecast = Forecast()
+        
+
+        
+        print(FORECAST_URL)
         // performs the download function of class CurrentWeather
         currentWeather.downloadWeatherDetails {
-            //Setup the ui
+            self.updateMainUI()
         }
-        
         
     }
 
+    
+    func downloadForecastData () {
+        // downloading forecast data for the table view
+        
+        let forecastURL = URL(string: FORECAST_URL)
+        Alamofire.request(forecastURL!).responseJSON { response in
+            
+            let result = response.result
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? Dictionary<String, AnyObject> {
+                    
+                    for obj in list {
+                        
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                    }
+                }
+            }
+                
+        }
+        
+    }
+    func updateMainUI() {
+        dateLabel.text = currentWeather._date
+        tempLabel.text = String(currentWeather._currentTemp)
+        currentWeatherType.text = currentWeather._weatherType
+        locationLabel.text = currentWeather._cityName
+        // use image with the name of the weather type downloaded in json:
+        currentWeatherImage.image = UIImage(named: currentWeather._weatherType)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

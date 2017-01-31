@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080F315F1E40D03E007FEA64 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F315E1E40D03E007FEA64 /* Forecast.swift */; };
 		08703C841E3BCC240090F4A2 /* CellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08703C831E3BCC240090F4A2 /* CellTableViewCell.swift */; };
 		08703C861E3BD83A0090F4A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08703C851E3BD83A0090F4A2 /* Constants.swift */; };
 		08703C881E3BD9FD0090F4A2 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08703C871E3BD9FD0090F4A2 /* CurrentWeather.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080F315E1E40D03E007FEA64 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		08703C831E3BCC240090F4A2 /* CellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTableViewCell.swift; sourceTree = "<group>"; };
 		08703C851E3BD83A0090F4A2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		08703C871E3BD9FD0090F4A2 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				08703C851E3BD83A0090F4A2 /* Constants.swift */,
 				08703C871E3BD9FD0090F4A2 /* CurrentWeather.swift */,
+				080F315E1E40D03E007FEA64 /* Forecast.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				08703C881E3BD9FD0090F4A2 /* CurrentWeather.swift in Sources */,
 				08E2A3B91E3B8BB000383A4E /* WeatherVC.swift in Sources */,
 				08E2A3B71E3B8BB000383A4E /* AppDelegate.swift in Sources */,
+				080F315F1E40D03E007FEA64 /* Forecast.swift in Sources */,
 				08703C861E3BD83A0090F4A2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

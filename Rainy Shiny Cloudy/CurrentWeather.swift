@@ -54,7 +54,7 @@ class CurrentWeather {
     }
     
    
-    func downloadWeatherDetails(completed: DownloadComplete) {
+    func downloadWeatherDetails(completed: @escaping DownloadComplete) {
         
         // Alamofire download
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
@@ -100,12 +100,10 @@ class CurrentWeather {
                     
                 }
 
-            }
+            }// tells the app that the function has completed
+            completed()
             
         }
-        
-        // tells the app that the function has completed
-        completed()
         
     }
 
